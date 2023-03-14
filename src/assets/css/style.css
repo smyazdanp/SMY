@@ -8,7 +8,7 @@ body {
 	margin: 0;
 	padding: 0;
 	background-color: #2b2b33;
-	font-family: 'Vazir';
+	font-family: "Vazir";
 }
 
 .header {
@@ -64,9 +64,39 @@ body {
 }
 
 .contactCon button {
-	font-family: 'Vazir';
+	font-family: "Vazir";
 	padding: 1em 2em;
-	font-size: .8em;
+	font-size: 0.8em;
 	font-weight: 600;
 	border-radius: 50px;
 }
+
+/* Start Main */
+.main {
+	width: 95%;
+	display: block;
+	margin: 0 auto;
+	/* background-color: red; */
+}
+
+.sliderCon {
+	width: 100%;
+}
+
+.swiper {
+	margin-block-start: 2em;
+	width: 100%;
+	border-radius: 15px;
+}
+
+.swiper-slide img {
+	width: 100%;
+	background-color: red;
+	border-radius: 15px;
+}
+/* 
+.swiper-slide {
+	padding: 50px;
+} */
+
+
