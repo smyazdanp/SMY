@@ -206,6 +206,22 @@ body {
 	position: relative;
 }
 
+.card h3 {
+	color: antiquewhite;
+	display: block;
+	margin: 1em;
+	font-size: 1.5em;
+}
+
+.card h4 {
+	color: antiquewhite;
+	position: absolute;
+	top: 2em;
+	right: 1.5em;
+	font-size: 26px;
+	opacity: 0.5;
+}
+
 .card:nth-child(1) {
 	background-color: #2c2c51;
 }
@@ -230,7 +246,7 @@ body {
 	position: absolute;
 	top: -75px;
 	left: -45px;
-	z-index: 99999;
+	z-index: -1;
 	background: linear-gradient(to right, #1e7979, #2a7485);
 	border-radius: 50%;
 	width: 150px;
