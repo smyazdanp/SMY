@@ -1,0 +1,21 @@
+{
+	"main": "src/index.html",
+	"type": "module",
+	"license": "UNLICENSED",
+	"scripts": {
+		"start": "vite",
+		"dev": "vite --force",
+		"server": "php -S 0.0.0.0:8000 -t=\"./src/api\"",
+		"build": "vite build --force",
+		"production": "vite build --force",
+		"types": "tsc --noEmit",
+		"lint:styles": "stylelint \"./src/**/*.scss\" --fix --config \"./.stylelintrc.json\"",
+		"lint:scripts": "eslint \"./src/\" --ext \".ts,.tsx,.js,.jsx\" --fix"
+	},
+	"dependencies": {},
+	"devDependencies": {
+		"sass": "^1.59.3",
+		"typescript": "^4.9.5",
+		"vite": "^4.2.0"
+	}
+}
