@@ -215,6 +215,7 @@ body {
 	position: relative;
 
 	h3 {
+		position: absolute;
 		color: antiquewhite;
 		display: block;
 		margin: 1em;
@@ -231,7 +232,7 @@ body {
 	}
 
 	&:nth-child(1) {
-		background-color: #2c2c51;
+		background-color: #292988;
 	}
 
 	&:nth-child(2) {
