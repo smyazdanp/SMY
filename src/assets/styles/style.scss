@@ -7,6 +7,15 @@ $Color-SAH: #f52a2a;
 $Color-SMY: #18922f;
 $Color-MHD: #ff8000;
 $Color-SHM: #007fff;
+$Color-Primary: #006fff;
+
+$Breakpoint-Mobile: 425px;
+$Breakpoint-Tablet: 768px;
+$Breakpoint-Desktop: 1024px;
+
+:root {
+	--swiper-navigation-size: 1.5em;
+}
 
 * {
 	box-sizing: border-box;
@@ -17,7 +26,7 @@ $Color-SHM: #007fff;
 body {
 	margin: 0;
 	padding: 0;
-	background-color: #2b2b33;
+	background-color: $Color-Body;
 	font-family: $Font-Persian;
 }
 
@@ -50,7 +59,7 @@ body {
 }
 
 .navbar {
-	width: 50%;
+	max-width: 90%;
 	/* background-color: green; */
 }
 
@@ -59,6 +68,7 @@ body {
 	align-items: center;
 	justify-content: space-around;
 	flex-direction: row;
+	gap: 1em;
 
 	li {
 		color: antiquewhite;
@@ -68,14 +78,13 @@ body {
 }
 
 .contactCon {
-	flex: 1;
+	flex: auto;
 	display: inline-flex;
 	align-items: center;
 	justify-content: flex-end;
 	/* background-color: purple; */
 
 	button {
-		border: 2px solid yellow;
 		font-family: $Font-Persian;
 		padding: 1em 2em;
 		font-size: 0.8em;
@@ -83,8 +92,9 @@ body {
 		border-radius: 50px;
 		outline: none;
 		/* border: none; */
-		background-color: transparent;
+		background-color: $Color-Primary;
 		color: rgb(247, 247, 247);
+		border: none;
 	}
 }
 
@@ -126,6 +136,8 @@ body {
 .swiper {
 	width: 100%;
 	border-radius: 15px;
+	overflow: unset;
+	overflow-x: hidden;
 }
 
 .swiper-slide img {
@@ -143,20 +155,32 @@ body {
 	background-color: rgb(227, 227, 227);
 	padding: 1em;
 	border-radius: 50%;
-}
 
-.Svg {
-	padding: 0;
-	width: 100%;
-	position: absolute;
-	top: 0;
-	z-index: 2;
+	&:after {
+		// padding: 0;
+		// width: 100%;
+		position: absolute;
+		z-index: 2;
+	}
+}
+.swiper-pagination {
+	position: relative;
+	.swiper-pagination-bullet {
+		background: white;
+		opacity: 0.7;
+		border-radius: 4px;
+		transition: 0.2s;
+	}
+	.swiper-pagination-bullet-active {
+		background: $Color-Primary;
+		width: 16px;
+	}
 }
 
 .container {
 	display: flex;
 	flex-direction: row;
-	background-color: #212128;
+	background-color: $Color-Container;
 	border-radius: 15px;
 	margin-block-end: 2em;
 	padding: 2.5em 3em;
@@ -190,20 +214,20 @@ body {
 
 .cardCon {
 	width: 100%;
-	height: 30vh;
 	/* background-color: red; */
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	gap: 20px;
+	align-items: stretch;
 	transform: translate(0);
 	overflow: hidden;
 	position: relative;
 }
 
 .card {
-	width: 23%;
-	height: 20vh;
-	background-color: #212128;
+	width: auto;
+	height: auto;
+	background-color: $Color-Container;
 	border-radius: 15px;
 	position: relative;
 	transform: translate(0);
@@ -237,6 +261,11 @@ body {
 
 	&:nth-child(3) {
 		background-color: #4f2c51;
+		lord-icon {
+			position: absolute;
+			bottom: -33px;
+			right: -15px;
+		}
 	}
 
 	&:nth-child(4) {
@@ -265,7 +294,7 @@ body {
 /* Start Footer */
 .footer {
 	width: 100%;
-	background-color: #212128;
+	background-color: $Color-Container;
 	display: flex;
 	padding: 1.5em 2em;
 
@@ -314,11 +343,10 @@ body {
 .socialMediaCon {
 	width: 50%;
 	border-radius: 8px;
-	background-color: #212128;
+	background-color: $Color-Container;
 	display: flex;
-	justify-content: center;
+	justify-content: space-around;
 	align-items: center;
-	gap: 2em;
 	border: 1px solid #4e4e6a;
 	padding-block: 1em;
 
@@ -359,5 +387,62 @@ body {
 		width: 20%;
 		height: 3px;
 		background-color: rgb(145, 99, 99);
+	}
+}
+@media (max-width: $Breakpoint-Tablet) {
+	.header {
+		display: none;
+	}
+	.TitleTextCon {
+		text-align: center;
+		padding-inline-start: unset;
+	}
+	.aboutUsCon {
+		flex-direction: column;
+		gap: 30px;
+	}
+	.aboutUsDetailCon {
+		h2 {
+			margin-inline-start: unset;
+			text-align: center;
+		}
+		p {
+			text-align: justify;
+		}
+	}
+	.aboutUsImageCon {
+		justify-content: center;
+	}
+	.cardCon {
+		grid-template-columns: 1fr 1fr;
+	}
+	.footer {
+		flex-direction: column-reverse;
+		align-items: center;
+		gap: 15px;
+		.copyright{
+			width: auto;
+		}
+		.socialMedia {
+			width: 50%;
+			.socialMediaCon{
+				width: 100%;
+			}
+		}
+	}
+}
+@media (max-width: $Breakpoint-Tablet) {
+	.aboutUsCon{
+		padding: 1.5em;
+	}
+	.aboutUsImageCon img{
+		max-width: 100%;
+	}
+	.cardCon {
+		grid-template-columns: 1fr;
+	}
+	.card:nth-child(3){
+		position: relative;
+		width: 100%;
 	}
 }
