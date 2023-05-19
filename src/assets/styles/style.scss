@@ -28,7 +28,13 @@ body {
 	padding: 0;
 	background-color: $Color-Body;
 	font-family: $Font-Persian;
-}
+	position: relative;
+  }
+
+  .Svg {
+	position: absolute;
+	z-index: 100;
+  }
 
 .header {
 	width: 100%;
@@ -224,15 +230,88 @@ body {
 	position: relative;
 }
 
+.contactUsCon{
+	display: grid;
+	grid-template-columns: 55% auto;
+	margin-block-start: 0.8em;
+}
+
+.contactUsDetailCon {
+
+	h2 {
+		font-size: 1.7em;
+		color: aliceblue;
+		margin-block-end: 0.8em;
+		margin-inline-start: 0.8em;
+	}
+
+	p {
+		color: aliceblue;
+		font-weight: 100;
+		font-family: $Font-Persian;
+		text-align: justify;
+		margin-inline-end: 2em;
+	}
+}
+
+.contactUsFormCon {
+
+	text-align: center;
+
+	p {
+		color: aliceblue;
+		font-weight: 100;
+		font-family: $Font-Persian;
+		text-align: justify;
+		margin-inline-start: 0.8em;
+		margin-block-end: 0.3em;
+	}
+
+	input {
+		width: 95%;
+		font-weight: 100;
+		font-size: 1em;
+		color: aliceblue;
+		border-radius: 5px;
+		padding: 7px;
+		background: none;
+		border: $Color-Primary 2px solid;
+		margin-block-end: 0.8em;
+	}
+
+	textarea {
+		width: 95%;
+		font-family: $Font-Persian;
+		font-weight: 100;
+		font-size: 1em;
+		color: aliceblue;
+		border-radius: 5px;
+		padding: 7px;
+		background: none;
+		border: $Color-Primary 2px solid;
+		margin-block-end: 0.8em;
+	}
+
+	button {
+		font-size: 1em;
+		font-weight: 100;
+		font-family: $Font-Persian;
+		padding: 6px 40px;
+		color: aliceblue;
+		border: none;
+		border-radius: 5px;
+		background-color: $Color-Primary;
+	}
+}
+
 .card {
 	width: auto;
 	height: auto;
 	background-color: $Color-Container;
 	border-radius: 15px;
-	position: relative;
+	display: block;
 	transform: translate(0);
 	overflow: hidden;
-	position: relative;
 
 	h3 {
 		position: absolute;
