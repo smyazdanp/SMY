@@ -50,90 +50,105 @@ const swiper = new Swiper(".swiper", {
 });
 
 const contactUsFormCon = document.getElementById("contactUsFormCon");
-const name_alert = <span class="formError"></span>;
-const phone_alert = <span class="formError"></span>;
-const email_alert = <span class="formError"></span>;
-const title_alert = <span class="formError"></span>;
+
+const name_input = (
+		<input type="text" name="Name" maxLength={128} placeholder="علی محمدی" onBlur={ValidateName} />
+	) as HTMLInputElement,
+	mobile_input = (
+		<input type="text" name="Mobile" maxLength={14} placeholder="09123456789" onBlur={ValidateMobile} />
+	) as HTMLInputElement,
+	email_input = (
+		<input type="text" name="Email" maxLength={128} placeholder="name@example.com" onBlur={ValidateEmail} />
+	) as HTMLInputElement,
+	title_input = (
+		<input type="text" name="Title" maxLength={128} placeholder="فروشگاهی" onBlur={ValidateTitle} />
+	) as HTMLInputElement,
+	text_input = <textarea name="Text" maxLength={1024} placeholder="حداکثر 4 خط"></textarea>,
+	name_alert = <span class="formError"></span>,
+	mobile_alert = <span class="formError"></span>,
+	email_alert = <span class="formError"></span>,
+	title_alert = <span class="formError"></span>;
+
+function ValidateName() {
+	if (name_input.value.length < 6 || !/^[a-zA-Z؀-ۿ۔-ۯۼ-۾]+$/.test(name_input.value)) {
+		name_alert.textContent = "نام کامل باید حداقل 6 حرف و بدون استفاده از عدد یا علامت باشد.";
+		return false;
+	} else {
+		name_alert.textContent = "";
+		return true;
+	}
+}
+
+function ValidateMobile() {
+	if (mobile_input.value.length !== 11 || !/^[0-9]+$/.test(mobile_input.value)) {
+		mobile_alert.textContent = "شماره موبایل معتبر نیست.";
+		return false;
+	} else {
+		name_alert.textContent = "";
+		return true;
+	}
+}
+
+function ValidateEmail() {
+	if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email_input.value)) {
+		email_alert.textContent = "ایمیل معتبر نمی‌باشد.";
+		return false;
+	} else {
+		name_alert.textContent = "";
+		return true;
+	}
+}
+
+function ValidateTitle() {
+	if (title_input.value.length < 3 || !/^[a-zA-Z؀-ۿ۔-ۯۼ-۾]+$/.test(title_input.value)) {
+		title_alert.textContent = "موضوع باید حداقل 3 حرف بدون عدد یا علامت باشد.";
+		return false;
+	} else {
+		name_alert.textContent = "";
+		return true;
+	}
+}
 
 const Form = (
 	<form>
 		<div>
 			<p>نام و نام خانوادگی</p>
-			<input
-				type="text"
-				name="Name"
-				maxLength={128}
-				placeholder="علی محمدی"
-				onBlur={(n) => {
-					if (n.currentTarget.value.length < 6 || !/^[a-zA-Z؀-ۿ۔-ۯۼ-۾]+$/.test(n.currentTarget.value)) {
-						name_alert.textContent = "نام کامل باید حداقل 6 حرف و بدون استفاده از عدد یا علامت باشد.";
-					} else {
-						name_alert.textContent = "";
-					}
-				}}
-			/>
+			{name_input}
 			{name_alert}
 		</div>
 		<div>
 			<p>تلفن تماس</p>
-			<input
-				type="text"
-				name="Mobile"
-				maxLength={14}
-				placeholder="09123456789"
-				onBlur={(p) => {
-					if (p.currentTarget.value.length !== 11 || !/^[0-9]+$/.test(p.currentTarget.value)) {
-						phone_alert.textContent = "شماره موبایل معتبر نیست.";
-					} else {
-						phone_alert.textContent = "";
-					}
-				}}
-			/>
-			{phone_alert}
+			{mobile_input}
+			{mobile_alert}
 		</div>
 		<div>
 			<p>ایمیل</p>
-			<input
-				type="text"
-				name="Email"
-				maxLength={128}
-				placeholder="name@example.com"
-				onBlur={(e) => {
-					if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(e.currentTarget.value)) {
-						email_alert.textContent = "ایمیل معتبر نمی‌باشد.";
-					} else {
-						email_alert.textContent = "";
-					}
-				}}
-			/>
+			{email_input}
 			{email_alert}
 		</div>
 		<div>
 			<p>موضوع سایت</p>
-			<input
-				type="text"
-				name="Title"
-				maxLength={128}
-				placeholder="فروشگاهی"
-				onBlur={(t) => {
-					if (t.currentTarget.value.length < 3 || !/^[a-zA-Z؀-ۿ۔-ۯۼ-۾]+$/.test(t.currentTarget.value)) {
-						title_alert.textContent = "موضوع باید حداقل 3 حرف بدون عدد یا علامت باشد.";
-					} else {
-						title_alert.textContent = "";
-					}
-				}}
-			/>
+			{title_input}
 			{title_alert}
 		</div>
 		<div>
 			<p>شرح پروژه و توضیحات</p>
-			<textarea name="Text" maxLength={1024} placeholder="حداکثر 4 خط"></textarea>
+			{text_input}
 		</div>
 
 		<div>
 			<button
 				type="button"
 				onClick={() => {
+					const IsNameValid = ValidateName();
+					const IsMobileValid = ValidateMobile();
+					const IsEmailValid = ValidateEmail();
+					const IsTitleValid = ValidateTitle();
+
+					if (!(IsNameValid && IsMobileValid && IsEmailValid && IsTitleValid)) {
+						return;
+					}
+
 					const data = new FormData(Form);
 					fetch(import.meta.env.VITE_API_URL, {
 						method: "post",
