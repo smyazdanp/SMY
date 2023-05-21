@@ -37,12 +37,16 @@ body {
   }
 
 .header {
+	display: block;
 	width: 100%;
-	/* background-color: #212128; */
+	background-color: #212128;
 	display: flex;
 	padding: 1.5em 2.6em;
 	z-index: 1000;
 	position: relative;
+	// position: fixed;
+	// box-shadow: 0 3px 3px #9c9c9c;
+	// margin-bottom: 200px;
 }
 
 .logoCon {
@@ -74,12 +78,22 @@ body {
 	align-items: center;
 	justify-content: space-around;
 	flex-direction: row;
-	gap: 1em;
+	gap: 2px;
+	cursor: pointer;
+	:hover{
+		background-color: #006fff;
+	}
+	:focus-visible {
+		background-color: #2b2b33;
+	}
 
 	li {
 		color: antiquewhite;
 		list-style: none;
 		font-size: 1em;
+		border-radius: 5px;
+		padding: 0.4em 1.2em;
+		font-weight: 500;
 	}
 }
 
@@ -89,7 +103,12 @@ body {
 	align-items: center;
 	justify-content: flex-end;
 	/* background-color: purple; */
-
+	:hover {
+		background-color: #0084ff;
+	}
+	a {
+		border-radius: 50px;
+	}
 	button {
 		font-family: $Font-Persian;
 		padding: 1em 2em;
@@ -101,6 +120,7 @@ body {
 		background-color: $Color-Primary;
 		color: rgb(247, 247, 247);
 		border: none;
+		cursor: pointer;
 	}
 }
 
@@ -135,7 +155,7 @@ body {
 .sliderCon {
 	width: 100%;
 	position: relative;
-	z-index: 9999;
+	z-index: 200;
 	margin-block-end: 3em;
 }
 
@@ -205,7 +225,6 @@ body {
 
 	p {
 		color: aliceblue;
-		font-weight: 100;
 		font-family: $Font-Persian;
 	}
 }
@@ -247,7 +266,6 @@ body {
 
 	p {
 		color: aliceblue;
-		font-weight: 100;
 		font-family: $Font-Persian;
 		text-align: justify;
 		margin-inline-end: 2em;
@@ -256,11 +274,10 @@ body {
 
 .contactUsFormCon {
 
-	text-align: center;
+	// text-align: center;
 
 	p {
 		color: aliceblue;
-		font-weight: 100;
 		font-family: $Font-Persian;
 		text-align: justify;
 		margin-inline-start: 0.8em;
@@ -268,7 +285,7 @@ body {
 	}
 
 	input {
-		width: 95%;
+		width: 100%;
 		font-weight: 100;
 		font-size: 1em;
 		color: aliceblue;
@@ -276,11 +293,11 @@ body {
 		padding: 7px;
 		background: none;
 		border: $Color-Primary 2px solid;
-		margin-block-end: 0.8em;
+		margin-bottom: 0.3em;
 	}
 
 	textarea {
-		width: 95%;
+		width: 100%;
 		font-family: $Font-Persian;
 		font-weight: 100;
 		font-size: 1em;
@@ -294,13 +311,26 @@ body {
 
 	button {
 		font-size: 1em;
-		font-weight: 100;
 		font-family: $Font-Persian;
 		padding: 6px 40px;
 		color: aliceblue;
 		border: none;
 		border-radius: 5px;
 		background-color: $Color-Primary;
+		float: left;
+		cursor: pointer;
+	}
+	button:hover {
+		background-color: #0084ff;
+
+	}
+	span {
+		color: #ff0000;
+		font-family: $Font-Persian;
+		text-align: justify;
+		margin-inline-start: 0.8em;
+		margin-block-end: 0.8em;
+		font-size: 0.8em;
 	}
 }
 
