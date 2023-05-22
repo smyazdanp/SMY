@@ -118,6 +118,9 @@ body {
 		color: rgb(247, 247, 247);
 		border: none;
 		cursor: pointer;
+		svg{
+			margin-inline-end: 0.5em;
+		}
 	}
 }
 
@@ -250,28 +253,41 @@ body {
 
 .contactUsCon{
 	display: grid;
-	grid-template-columns: 55% auto;
-	margin-block-start: 0.8em;
+	grid-template-columns: 1.5fr 1fr;
+	margin-block-start: 2em;
+	gap: 2em;
 }
 
 .contactUsDetailCon {
+
+	display: grid;
+	grid-template-rows: auto auto 1fr;
+    justify-items: center;
+    align-items: end;
 
 	h2 {
 		font-size: 1.7em;
 		color: aliceblue;
 		margin-block-end: 0.8em;
 		margin-inline-start: 0.8em;
+		justify-self: start;
 	}
 
 	p {
 		color: aliceblue;
 		font-family: $Font-Persian;
 		text-align: justify;
-		margin-inline-end: 2em;
+	}
+	img{
+		width: 70%;
 	}
 }
 
 .contactUsFormCon {
+
+	div{
+		margin-block-end: 0.4em;
+	}
 
 	// text-align: center;
 
@@ -288,11 +304,12 @@ body {
 		font-weight: 100;
 		font-size: 1em;
 		color: aliceblue;
-		border-radius: 5px;
-		padding: 7px;
+		border-radius: 7.5px;
+		padding: 0.5em 1em;
 		background: none;
 		border: $Color-Primary 2px solid;
 		margin-bottom: 0.3em;
+		font-family: $Font-Persian;
 	}
 
 	textarea {
@@ -301,8 +318,8 @@ body {
 		font-weight: 100;
 		font-size: 1em;
 		color: aliceblue;
-		border-radius: 5px;
-		padding: 7px;
+		border-radius: 7.5px;
+		padding: 0.5em 1em;
 		background: none;
 		border: $Color-Primary 2px solid;
 		margin-block-end: 0.8em;
@@ -370,6 +387,7 @@ body {
 
 	&:nth-child(3) {
 		background-color: #4f2c51;
+		height: 128.5px;
 		lord-icon {
 			position: absolute;
 			bottom: -33px;
@@ -459,7 +477,7 @@ body {
 	border: 1px solid #4e4e6a;
 	padding-block: 1em;
 
-	i {
+	svg {
 		font-size: 2em;
 		color: #9c9c9c;
 	}
@@ -539,9 +557,16 @@ body {
 			}
 		}
 	}
+	.contactUsCon{
+		grid-template-columns: auto;
+	}
+	.contactUsDetailCon img{
+		width: 100%;
+		margin: 2em 0;
+	}
 }
-@media (max-width: $Breakpoint-Tablet) {
-	.aboutUsCon{
+@media (max-width: $Breakpoint-Mobile) {
+	.container{
 		padding: 1.5em;
 	}
 	.aboutUsImageCon img{
@@ -554,4 +579,5 @@ body {
 		position: relative;
 		width: 100%;
 	}
+	
 }
