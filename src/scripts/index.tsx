@@ -52,16 +52,16 @@ const swiper = new Swiper(".swiper", {
 const contactUsFormCon = document.getElementById("contactUsFormCon");
 
 const name_input = (
-		<input type="text" name="Name" maxLength={128} placeholder="مثال: علی محمدی" onBlur={ValidateName} />
+		<input type="text" name="Name" maxLength={128} placeholder="علی محمدی" onBlur={ValidateName} />
 	) as HTMLInputElement,
 	mobile_input = (
-		<input type="text" name="Mobile" maxLength={14} placeholder="مثال: 09123456789" onBlur={ValidateMobile} />
+		<input type="text" name="Mobile" maxLength={14} placeholder="09123456789" onBlur={ValidateMobile} />
 	) as HTMLInputElement,
 	email_input = (
-		<input type="text" name="Email" maxLength={128} placeholder="مثال: name@example.com" onBlur={ValidateEmail} />
+		<input type="text" name="Email" maxLength={128} placeholder="name@example.com" onBlur={ValidateEmail} />
 	) as HTMLInputElement,
 	title_input = (
-		<input type="text" name="Title" maxLength={128} placeholder="مثال: فروشگاهی" onBlur={ValidateTitle} />
+		<input type="text" name="Title" maxLength={128} placeholder="فروشگاهی" onBlur={ValidateTitle} />
 	) as HTMLInputElement,
 	text_input = <textarea name="Text" maxLength={1024} placeholder="حداکثر 4 خط"></textarea>,
 	name_alert = <span class="formError"></span>,
@@ -70,7 +70,8 @@ const name_input = (
 	title_alert = <span class="formError"></span>;
 
 function ValidateName() {
-	if (name_input.value.length < 6 || !/^[a-zA-Z؀-ۿ۔-ۯۼ-۾]+$/.test(name_input.value)) {
+	// if (name_input.value.length < 6 || !/^[a-zA-Z؀-ۿ۔-ۯۼ-۾]+$/.test(name_input.value)) {
+	if (name_input.value.trim().length < 6 ) {
 		name_alert.textContent = "نام کامل باید حداقل 6 حرف و بدون استفاده از عدد یا علامت باشد.";
 		return false;
 	} else {
@@ -80,7 +81,8 @@ function ValidateName() {
 }
 
 function ValidateMobile() {
-	if (mobile_input.value.length !== 11 || !/^[0-9]+$/.test(mobile_input.value)) {
+	// if (mobile_input.value.length !== 11 || !/^[0-9]+$/.test(mobile_input.value)) {
+	if ( !/^(\+98|0098|98|0)?(9\d{9})$/.test(mobile_input.value)) {
 		mobile_alert.textContent = "شماره موبایل معتبر نیست.";
 		return false;
 	} else {
@@ -100,7 +102,8 @@ function ValidateEmail() {
 }
 
 function ValidateTitle() {
-	if (title_input.value.length < 3 || !/^[a-zA-Z؀-ۿ۔-ۯۼ-۾]+$/.test(title_input.value)) {
+	// if (title_input.value.trim(.length < 3 || !/^[a-zA-Z؀-ۿ۔-ۯۼ-۾]+$/.test(title_input.value)) {
+	if (title_input.value.trim().length < 3 ) {
 		title_alert.textContent = "موضوع باید حداقل 3 حرف بدون عدد یا علامت باشد.";
 		return false;
 	} else {
