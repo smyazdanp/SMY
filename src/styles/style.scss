@@ -44,20 +44,20 @@ body {
 	padding: 1.5em 2.6em;
 	z-index: 1000;
 	position: relative;
+	gap: 3em;
 	// position: fixed;
 	// box-shadow: 0 3px 3px #9c9c9c;
 	// margin-bottom: 200px;
 }
 
 .logoCon {
-	flex: 2;
 	display: inline-flex;
 	justify-content: flex-start;
 	align-items: center;
 	/* background-color: yellow; */
 
 	img {
-		width: 50px;
+		width: 65px;
 	}
 }
 
@@ -95,7 +95,7 @@ body {
 }
 
 .contactCon {
-	flex: auto;
+	// flex: auto;
 	display: inline-flex;
 	align-items: center;
 	justify-content: flex-end;
